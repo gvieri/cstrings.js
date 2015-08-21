@@ -1,0 +1,222 @@
+<html>
+<head>
+
+</head>
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<div>
+<form enctype="text/plain" method="get" action="mailto:me@ziogianni.com">
+subject:<input name="subject" type="text" /><br>
+Your First Name: <input type="text" name="first_name"><br>
+Your Last Name: <input type="text" name="last_name"><br>
+Comments: <textarea rows="5" cols="30" name="comments"></textarea>
+<br>
+
+<input type="submit" value="Send">
+</form> 
+</div>
+
+<hr>
+<div>
+
+
+<form id="formaccia" onsubmit="attivamailer()">
+
+subject:<input id="subject" name="subject" type="text" /><br>
+
+contenuto0:<input id="contenuto0" name="contenuto0" type="text" /><br>
+contenuto1:<input id="contenuto1" name="contenuto1" type="text" /><br>
+
+ <input type="submit">
+</form>
+
+</div>
+<div>
+<form id="commandForm">
+	
+ <a href="#"  onclick="getAllContentFromAGivenForm('#formaccia');">click</a>
+
+</form>
+
+
+</div>
+<script>
+function attivamailer() {
+var sub =  $("#subject").val(); 
+var cont0 = $('#contenuto0').val()+'\n'; 
+var cont1 = $('#contenuto1').val()+'\n'; 
+
+//var mail2 = 'mailto:me@ziogianni.com?subject='+sub+'&body='+cont0+'|||||'+cont1+'}}}}';
+var mail2 = 'mailto:me@ziogianni.com?subject='+sub+'&body='+encodeURIComponent(cont0+'||\n|||'+cont1+'}}\n}}');
+console.log("++++++++++"+mail2+"\n");
+alert (mail2);
+window.open(mail2) ;
+
+
+}
+
+
+function getAllContentFromAGivenForm(formId) { 
+var FID=formId; 
+var searchString= FID+' input,'+FID+' select,'+FID+' textarea,'+FID+' hidden';
+var result="";
+var body="";
+var subject=""; 
+console.log("chiamata getAllContentFromAGivenForm "+formId+"|||"+searchString+"\n");
+alert("chiamata getAllContentFromAGivenForm "+formId+"|||"+searchString+"\n");
+
+//	$( FID+' input,'+FID+' select,'+FID+' textarea').each(
+	$( searchString).each(
+		function(index){  
+			
+			var input = $(this);
+//			alert('Type: ' + input.attr('type') + 'Name: ' + input.attr('name') + 'Value: ' + input.val());
+			
+			result+='Name: |' + input.attr('name') + '|Value: |' + input.val()+'|\n');		
+		}
+	); 
+	body= encodeURIComponent(result); 
+	
+} 
+
+function strcmpi(s1,s2) {
+var S1=s1.toLowerCase(); 
+var S2=s2.toLowerCase();
+ret=-1;
+
+	if(S1==S2) { 
+		ret=0; 
+	} 
+return(ret); 
+}
+
+
+function strcmp(s1,s2) {
+var S1=s1; 
+var S2=s2;
+ret=-1;
+
+	if(S1==S2) { 
+		ret=0; 
+	} 
+return(ret); 
+}
+
+function strncmpi(s1,s2,n) {
+var S1; 
+var S2;
+
+S1=s1.substr(0,n);
+S2=s2.substr(0,n); 
+S1=S1.toLowerCase(); 
+S2=S2.toLowerCase();
+ret=-1;
+
+	if(S1==S2) { 
+		ret=0; 
+	} 
+return(ret); 
+}
+
+
+function strncmp(s1,s2,n) {
+var S1; 
+var S2;
+
+S1=s1.substr(0,n);
+S2=s2.substr(0,n); 
+ret=-1;
+
+	if(S1==S2) { 
+		ret=0; 
+	} 
+return(ret); 
+}
+
+function strcat (dest, s) {
+
+
+}
+
+
+function memset( s,c,n) {
+
+}
+
+function memcmp( s,c,n) { 
+
+} 
+
+
+function memchr( s,c,n) { 
+
+}
+
+function strcpy (dest , src) { 
+
+
+} 
+
+
+function strcat (dest , src) { 
+}
+
+
+function strcoll ( s1, s2) { 
+
+
+} 
+
+
+
+function  strdup (s) { 
+
+} 
+
+function strndup(s) { 
+
+} 
+
+function strchr ( s,c) { 
+
+} 
+
+function  strrchr ( s, c) { 
+
+
+} 
+
+function strpbrk (s,accept) { 
+
+
+} 
+
+function strstr (haystack , needle) { 
+
+
+} 
+
+function memcpy (dest,src,n) {
+
+
+} 
+
+function strlen (s) { 
+
+} 
+
+function bzero (s,n) { 
+
+
+} 
+
+
+
+
+
+
+</script>
+</body>
+
+</html> 
